@@ -1,5 +1,6 @@
 package com.example.demo.student;
 
+import com.example.demo.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getStudent() {
+        /*throw new ApiRequestException("ccccccccccccccccccccccccc");*/
         return studentService.getStudent();
     }
 
