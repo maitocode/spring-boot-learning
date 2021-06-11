@@ -26,8 +26,20 @@ public class StudentConfig {
                     LocalDate.of(2007, Month.JANUARY, 5)
             );
 
+            Student mrsimple = new Student(
+                    "simple",
+                    "mr.simple@gmail.com",
+                    LocalDate.of(2003, Month.FEBRUARY, 22)
+            );
+
+            Student mrcomplex = new Student(
+                    "complex",
+                    "mr.complex@gmail.com",
+                    LocalDate.of(2003, Month.FEBRUARY, 22)
+            );
+
             repository.saveAll(
-                    List.of(quyet, alex)
+                    List.of(quyet, alex, mrsimple, mrcomplex)
             );
         };
     }

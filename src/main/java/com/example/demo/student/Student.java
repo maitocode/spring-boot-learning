@@ -1,8 +1,12 @@
 package com.example.demo.student;
 
+import com.example.demo.Course.Course;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity // for hibernate
 @Table // for table in database
@@ -17,15 +21,26 @@ public class Student {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
-
     private Long id;
+
     private String name;
     private String email;
     private LocalDate dob;
     @Transient
     private Integer age;
 
+    @ManyToMany(mappedBy = "students")
+    private Set<Course> courses = new HashSet<>();
+
     public Student() {
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
 
     public Student(Long id, String name, String email, LocalDate dob) {

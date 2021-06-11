@@ -22,9 +22,8 @@ public class StudentService {
     }
 
     public List<Student> getStudent() {
-        return studentRepository.findAll(); // return list for us
+        return studentRepository.findAll();// return list for us
     }
-
 
     public void addNewStudent(Student student) {
         Optional<Student> studentOptional = studentRepository
